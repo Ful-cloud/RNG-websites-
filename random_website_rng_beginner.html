@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Website RNG</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 30px 15px;
+      font-family: Arial, sans-serif;
+      background: #10131d;
+      color: white;
+      text-align: center;
+    }
+
+    h1 {
+      margin-bottom: 5px;
+    }
+
+    .purple {
+      color: #7774ff;
+    }
+
+    p {
+      color: #b8c2d8;
+    }
+
+    button {
+      background: #5750ee;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 13px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    button:hover {
+      background: #716bff;
+    }
+
+    .card {
+      max-width: 480px;
+      margin: 25px auto;
+      padding: 20px;
+      text-align: left;
+      background: #191f2e;
+      border: 1px solid #303a50;
+      border-radius: 12px;
+    }
+
+    .rarity {
+      display: inline-block;
+      background: #5750ee;
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 15px;
+      font-size: 13px;
+    }
+
+    .site-box {
+      height: 130px;
+      border-radius: 8px;
+      background: #0b0e15;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 26px;
+      font-weight: bold;
+      text-align: center;
+      padding: 10px;
+      color: #dcdcff;
+    }
+
+    .visit {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 11px 20px;
+      background: #5750ee;
+      color: white;
+      text-decoration: none;
+      border-radius: 7px;
+    }
+
+    footer {
+      margin-top: 35px;
+      font-size: 14px;
+      color: #aab4ca;
+    }
+  </style>
+</head>
+<body>
+  <h1>Random Website</h1>
+  <h1 class="purple">RNG</h1>
+  <p>Press the button to get a random website!</p>
+
+  <button onclick="rollWebsite()">RNG</button>
+
+  <div class="card" id="card" hidden>
+    <span class="rarity" id="rarity">Common</span>
+    <div class="site-box" id="siteName">Website</div>
+    <h2 id="name"></h2>
+    <p id="description"></p>
+    <a class="visit" id="visit" href="#" target="_blank" rel="noopener">Visit Site</a>
+  </div>
+
+  <footer>12 websites available &nbsp; | &nbsp; Made by me :)</footer>
+
+  <script>
+    const websites = [
+      { name: "Neal.fun", description: "A collection of fun, weird and useful things.", url: "https://neal.fun/", rarity: "Rare" },
+      { name: "The Useless Web", description: "Click and discover a random silly website.", url: "https://theuselessweb.com/", rarity: "Common" },
+      { name: "Radio Garden", description: "Listen to radio stations from around the world.", url: "https://radio.garden/", rarity: "Rare" },
+      { name: "Window Swap", description: "Look through a window somewhere in the world.", url: "https://window-swap.com/", rarity: "Epic" },
+      { name: "Pointer Pointer", description: "Find a photo pointing at your cursor.", url: "https://pointerpointer.com/", rarity: "Common" },
+      { name: "Quick, Draw!", description: "Draw something and let a computer guess it.", url: "https://quickdraw.withgoogle.com/", rarity: "Common" },
+      { name: "Earth Nullschool", description: "Explore a moving map of global weather.", url: "https://earth.nullschool.net/", rarity: "Epic" },
+      { name: "A Soft Murmur", description: "Mix relaxing background sounds.", url: "https://asoftmurmur.com/", rarity: "Common" },
+      { name: "Radiooooo", description: "Explore music from different places and decades.", url: "https://radiooooo.com/", rarity: "Rare" },
+      { name: "100,000 Stars", description: "Take a visual trip through nearby stars.", url: "https://stars.chromeexperiments.com/", rarity: "Legendary" },
+      { name: "MapCrunch", description: "Jump to a random place on Google Street View.", url: "https://www.mapcrunch.com/", rarity: "Rare" },
+      { name: "This Is Sand", description: "Make colorful sand art in your browser.", url: "https://thisissand.com/", rarity: "Epic" }
+    ];
+
+    function rollWebsite() {
+      const site = websites[Math.floor(Math.random() * websites.length)];
+      document.getElementById("card").hidden = false;
+      document.getElementById("rarity").textContent = site.rarity;
+      document.getElementById("siteName").textContent = site.name;
+      document.getElementById("name").textContent = site.name;
+      document.getElementById("description").textContent = site.description;
+      document.getElementById("visit").href = site.url;
+    }
+  </script>
+</body>
+</html>
